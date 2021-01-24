@@ -32,7 +32,7 @@ task('deploy:secrets', function () {
 });
 
 task('deploy:link', function(){
-    run('ln -s {{deploy_path}}/current/* {{deploy_path}} && ln -s {{deploy_path}}/current/.htaccess {{deploy_path}}');
+    run('ln -sf {{deploy_path}}/current/* {{deploy_path}} && ln -sf {{deploy_path}}/current/.htaccess {{deploy_path}}');
 });
 
 // Hosts
