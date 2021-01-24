@@ -3,7 +3,13 @@
 
 name: Validation Code
 
-on: push
+on:
+  push:
+    branches:
+      - '*'
+      - '*/*'
+      - '**'
+      - '!release'
 
 jobs:
   compile-assets:
