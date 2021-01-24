@@ -12,7 +12,7 @@
 */
 
 use App\Http\Controllers\SampleController;
-use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'SampleController@index');
 Route::get('/test', 'SampleController@test');
