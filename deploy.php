@@ -31,6 +31,9 @@ task('deploy:secrets', function () {
     run('cp $HOME/env/ci-cd-test/.env {{deploy_path}}/shared');
 });
 
+task('deploy:link', function(){
+    run('ln -s {{deploy_path}}/current/* {{deploy_path}} && ln -s {{deploy_path}}/current/.htaccess {{deploy_path}}');
+});
 
 // Hosts
 host('104.199.182.52') // Name of the server
@@ -41,6 +44,7 @@ host('104.199.182.52') // Name of the server
     ->set('http_user', 'www-data');
 
 after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
+
 
 desc('Deploy the application');
 task('deploy', [
@@ -59,13 +63,8 @@ task('deploy', [
     'artisan:optimize',     // |
     // 'artisan:migrate',      // | Run artisan migrate if you need it, if not then just comment it!
     'deploy:symlink',
+    'deploy:link',
     'deploy:unlock',
     'cleanup',
 ]);
-
-
-desc('Additional Option');
-task('deploy:link', function(){
-    run('ln -s {{deploy_path}}/current/* {{deploy_path}} && ln -s {{deploy_path}}/current/.htaccess {{deploy_path}}');
-});
 
