@@ -63,6 +63,9 @@ task('deploy', [
     'cleanup',
 ]);
 
-task('link public dir', function(){
-    run('ln -s {{deploy_path}}/current/public/* {{deploy_path}}');
+
+desc('Additional Option');
+task('deploy:link', function(){
+    run('ln -s {{deploy_path}}/current/* {{deploy_path}} && ln -s {{deploy_path}}/current/.htaccess {{deploy_path}}');
 });
+
