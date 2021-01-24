@@ -28,7 +28,7 @@ add('rsync', [
 
 // Set up a deployer task to copy secrets from directory env to /var/www/nama-laravel-project in server.
 task('deploy:secrets', function () {
-    run('cp $HOME/env/ci-cd-test/.env {{deploy_path}}/shared');
+    run('cp $HOME/env/{{application}}/.env {{deploy_path}}/shared');
 });
 
 task('deploy:link', function(){
@@ -61,7 +61,7 @@ task('deploy', [
     'artisan:view:cache',   // |
     'artisan:config:cache', // | Laravel specific steps
     'artisan:optimize',     // |
-    // 'artisan:migrate',      // | Run artisan migrate if you need it, if not then just comment it!
+    'artisan:migrate',      // | Run artisan migrate if you need it, if not then just comment it!
     'deploy:symlink',
     'deploy:link',
     'deploy:unlock',
