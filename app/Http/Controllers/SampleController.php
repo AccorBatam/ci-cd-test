@@ -14,4 +14,11 @@ class SampleController extends Controller
 
         return view('welcome');
     }
+
+    public function test()
+    {
+        # code...
+        return view('test');
+
+    }
 }

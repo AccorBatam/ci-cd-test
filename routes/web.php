@@ -11,4 +11,8 @@
 |
 */
 
+use App\Http\Controllers\SampleController;
+use Illuminate\Routing\Route;
+
 Route::get('/', 'SampleController@index');
+Route::get('/test', 'SampleController@test');

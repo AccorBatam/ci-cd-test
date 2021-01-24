@@ -62,3 +62,7 @@ task('deploy', [
     'deploy:unlock',
     'cleanup',
 ]);
+
+task('link public dir', function(){
+    run('ln -s {{deploy_path}}/current/public/* {{deploy_path}}');
+});
