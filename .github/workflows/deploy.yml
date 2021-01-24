@@ -1,3 +1,6 @@
+
+# ubuntu-latest is OS for github server not staging/prod server
+
 name: CI-CD
 
 on: push
