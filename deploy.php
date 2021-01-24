@@ -37,7 +37,7 @@ host('104.199.182.52') // Name of the server
     ->hostname('104.199.182.52') // Hostname or IP address
     ->stage('staging') // Deployment stage (production, staging, etc)
     ->user('deployer') // SSH user
-    ->set('deploy_path', '/var/www/ci-cd-test') // Deploy path
+    ->set('deploy_path', '/var/www/html/ci-cd-test') // Deploy path
     ->set('http_user', 'www-data');
 
 after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
