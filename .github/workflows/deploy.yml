@@ -45,6 +45,13 @@ jobs:
           php artisan key:generate
       - name: Run tests
         run: ./vendor/bin/phpunit
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
   deploy:
     name: Deploy to production
     runs-on: ubuntu-latest
